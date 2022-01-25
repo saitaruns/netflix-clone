@@ -1,0 +1,24 @@
+.trailer-banner{
+    height: 100vh;
+    width: 100%;
+    /* linear gradient from bottom to top */
+    background-image: linear-gradient(to top, red 0%, rgba(0,0,0,0) 100%);
+}
+
+.trailer-banner > img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.trailer-banner > .title-card{
+    width: 50vw;
+    color: white;
+    position: absolute;
+    top: 28%;
+    left: 2%;
+}
+
+.title-card > h2{
+    font-size: 3rem;
+}
