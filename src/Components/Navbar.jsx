@@ -1,6 +1,7 @@
 import React from "react";
-import { FaSearch, FaBell, FaCaretDown } from "react-icons/fa";
+import { FaBell, FaCaretDown } from "react-icons/fa";
 import NetflixLogo from "./../assets/NetflixLogo.png";
+import Search from "./Search";
 
 const Navbar = () => {
   const navColor = () => {
@@ -38,7 +39,7 @@ const Navbar = () => {
       </ul>
       <ul className="home-ul home-nav-two">
         <li>
-          <FaSearch style={{ color: "white" }} />
+          <Search />
         </li>
         <li>Kids</li>
         <li>DVD</li>
