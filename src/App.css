@@ -1,5 +1,6 @@
 body{
   background-color: #141414;
+  user-select: none;
 }
 .navbar{
   display: flex;
@@ -7,7 +8,7 @@ body{
   position: fixed;
   width: 100%;
   background-image: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));
-  z-index: 3;
+  z-index: 14;
 }
 
 .black{

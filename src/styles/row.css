@@ -7,15 +7,20 @@
 .block > h3 {
     margin: 10px;
     color: white;
-    z-index: 5;
+}
+
+.row-main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .row{
     width: max-content;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    overflow: hidden;
+    position: relative;
+    transition: all 0.5s ease-in-out;
 }
 
 .card{
@@ -35,4 +40,32 @@
     border-radius: 5px;
     height: 100%;
     width: 100%;
+}
+
+.navigation-buttons{
+    background: rgba(20,20,20,.7);
+    position: absolute;
+    width: 30px;
+    height: 12vw;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.navigation-buttons :hover{
+    font-size: 30px;
+}
+
+.left{
+    left: 0;
+}
+
+.right{
+    right: 0;
 }

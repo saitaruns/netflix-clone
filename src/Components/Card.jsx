@@ -1,24 +1,10 @@
-import './../styles/card.css';
-import {useState} from 'react';
+import './../styles/row.css';
+import { useContext } from 'react';
+import { ModalContext } from './../App';
 
 const Card = ({movie}) => {
-    const [style, setStyle] = useState({
-        transform : 'scale(1.0)',
-        zIndex : '1'
-    })
-    const over = () => {
-        setStyle({
-            transform : 'scale(1.5)',
-            zIndex : '10'
-        })
-    };
-    const out = () => {
-        setStyle({
-            transform : 'scale(1.0)',
-            zIndex : '1'
-        })
-    };
-  return <div style={style} className="card" onMouseOver={over} onMouseLeave={out}>
+    const toggleModal = useContext(ModalContext);
+  return <div  className="card" onClick={()=>toggleModal(movie)} >
     <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt=""/>
   </div>;
 };

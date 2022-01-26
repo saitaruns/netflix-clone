@@ -1,14 +1,29 @@
 import './App.css';
+import { useState } from 'react';
 import Navbar from './Components/Navbar';
 import Maintrailer from './Components/Maintrailer';
 import Row from './Components/Row';
 import Footer from './Components/Footer';
+import Modal from './Components/Modal';
 import API from './api';
+import {createContext} from 'react';
+
+export const ModalContext = createContext();
 
 function App() {
+  const [isOpen , setIsOpen] = useState(false);
+  const [modalData , setModalData] = useState({});
+
+  const toggleModal = (data) => {
+    document.body.style.overflow = !isOpen ? 'hidden' : 'auto';
+    setIsOpen(isOpen => !isOpen);
+    setModalData(data);
+  }
 
   return (
     <div className="App">
+      <ModalContext.Provider value={toggleModal}>
+      <Modal isOpen={isOpen} data={modalData}/>
       <Navbar />
       <Maintrailer/>
       <Row title={"Popular on Netflix"} url={`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API}`} />
@@ -19,6 +34,7 @@ function App() {
       <Row title={"Best Horror Movies"} url={`https://api.themoviedb.org/3/discover/movie?with_genres=27&vote_count.gte=10&api_key=${API}`}/>
       <Row title={"Best Documentaries"} url={`https://api.themoviedb.org/3/discover/movie?with_genres=99&vote_count.gte=10&api_key=${API}`}/>
       <Footer />
+      </ModalContext.Provider>
     </div>
   );
 }
