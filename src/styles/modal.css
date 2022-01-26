@@ -13,7 +13,6 @@
 .modal{
     min-height: 100%;
     width: 60vw;
-    background-color: red;
     margin: auto;
     position : relative;
     top: 10vh;
@@ -21,6 +20,7 @@
     background-color: #181818;
     z-index: 16;
     color: white;
+    animation: zoomIn 0.3s ease-in-out;
 }
 
 .modal-header > img{
@@ -42,4 +42,22 @@
     background-color: rgba(0,0,0,0.5);
     border-radius: 50%;
     cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0.9);
+    }
 }

@@ -56,6 +56,7 @@
     font-size: 20px;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
+    background: linear-gradient(to left, black, rgba(0, 0, 0, 0.644));
 }
 
 .navigation-buttons :hover{
@@ -64,8 +65,10 @@
 
 .left{
     left: 0;
+    background: linear-gradient(to right, black, rgba(0, 0, 0, 0.644));
 }
 
 .right{
     right: 0;
+    background: linear-gradient(to left, black, rgba(0, 0, 0, 0.644));
 }

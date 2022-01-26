@@ -14,15 +14,20 @@ function App() {
   const [isOpen , setIsOpen] = useState(false);
   const [modalData , setModalData] = useState({});
 
-  const toggleModal = (data) => {
-    document.body.style.overflow = !isOpen ? 'hidden' : 'auto';
+  const openModal = (data) => {
+    document.body.style.overflow = 'hidden';
     setIsOpen(isOpen => !isOpen);
     setModalData(data);
   }
 
+  const closeModal = () => {
+    document.body.style.overflow = 'auto';
+    setIsOpen(isOpen => !isOpen);
+  }
+
   return (
     <div className="App">
-      <ModalContext.Provider value={toggleModal}>
+      <ModalContext.Provider value={{openModal,closeModal}}>
       <Modal isOpen={isOpen} data={modalData}/>
       <Navbar />
       <Maintrailer/>

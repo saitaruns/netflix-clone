@@ -1,22 +1,30 @@
 import reactDom from "react-dom";
 import "./../styles/modal.css";
 import { ModalContext } from "../App";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 
 const Modal = ({ isOpen, data }) => {
-  const toggleModal = useContext(ModalContext);
+  const {closeModal} = useContext(ModalContext);
+
+  const close = (e) => {
+    document.querySelector(".modal").style.animation = "zoomOut .3s forwards";
+      setTimeout(() => {
+        closeModal();
+      }, 280);
+  };
+  
   const handleClick = (e) => {
     if (e.target.className === "back-drop") {
-      toggleModal();
+      close()
     }
-  };
-  return isOpen
-    ? reactDom.createPortal(
+  };  
+
+  return isOpen ? reactDom.createPortal(
         <div className="back-drop" onClick={handleClick}>
           <div className="modal">
             <div className="modal-header">
-              <FaTimes className="close-icon" onClick={() => toggleModal()} />
+              <FaTimes className="close-icon" onClick={() => close()} />
               <img
                 src={`https://image.tmdb.org/t/p/w500/${data.backdrop_path}`}
                 alt=""
@@ -35,8 +43,7 @@ const Modal = ({ isOpen, data }) => {
           </div>
         </div>,
         document.getElementById("portal")
-      )
-    : null;
+      ): null;
 };
 
 export default Modal;
