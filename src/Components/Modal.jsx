@@ -1,7 +1,7 @@
 import reactDom from "react-dom";
 import "./../styles/modal.css";
 import { ModalContext } from "../App";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { FaTimes } from "react-icons/fa";
 
 const Modal = ({ isOpen, data }) => {
@@ -13,7 +13,7 @@ const Modal = ({ isOpen, data }) => {
         closeModal();
       }, 280);
   };
-  
+
   const handleClick = (e) => {
     if (e.target.className === "back-drop") {
       close()
